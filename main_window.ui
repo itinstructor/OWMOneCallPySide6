@@ -811,16 +811,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_7_day_forecast">
+      <widget class="QPushButton" name="btn_48_hour_forecast">
        <property name="text">
-        <string>7 Day Forecast</string>
+        <string>48 Hour Forecast</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_48_hour_forecast">
+      <widget class="QPushButton" name="btn_7_day_forecast">
        <property name="text">
-        <string>48 Hour Forecast</string>
+        <string>7 Day Forecast</string>
        </property>
       </widget>
      </item>

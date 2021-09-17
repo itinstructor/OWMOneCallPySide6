@@ -387,15 +387,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_12_hour_forecast)
 
-        self.btn_7_day_forecast = QPushButton(self.layoutWidget)
-        self.btn_7_day_forecast.setObjectName(u"btn_7_day_forecast")
-
-        self.horizontalLayout.addWidget(self.btn_7_day_forecast)
-
         self.btn_48_hour_forecast = QPushButton(self.layoutWidget)
         self.btn_48_hour_forecast.setObjectName(u"btn_48_hour_forecast")
 
         self.horizontalLayout.addWidget(self.btn_48_hour_forecast)
+
+        self.btn_7_day_forecast = QPushButton(self.layoutWidget)
+        self.btn_7_day_forecast.setObjectName(u"btn_7_day_forecast")
+
+        self.horizontalLayout.addWidget(self.btn_7_day_forecast)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.status_bar = QStatusBar(MainWindow)
@@ -459,7 +459,7 @@ class Ui_MainWindow(object):
         self.lbl_wind_arrow.setText("")
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.btn_12_hour_forecast.setText(QCoreApplication.translate("MainWindow", u"12 Hour Forecast", None))
-        self.btn_7_day_forecast.setText(QCoreApplication.translate("MainWindow", u"7 Day Forecast", None))
         self.btn_48_hour_forecast.setText(QCoreApplication.translate("MainWindow", u"48 Hour Forecast", None))
+        self.btn_7_day_forecast.setText(QCoreApplication.translate("MainWindow", u"7 Day Forecast", None))
     # retranslateUi
 
