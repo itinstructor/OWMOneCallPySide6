@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>628</width>
-    <height>385</height>
+    <height>378</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,9 +39,9 @@
    <property name="geometry">
     <rect>
      <x>25</x>
-     <y>55</y>
+     <y>80</y>
      <width>581</width>
-     <height>266</height>
+     <height>246</height>
     </rect>
    </property>
    <property name="font">
@@ -63,6 +63,25 @@
     <font>
      <pointsize>14</pointsize>
      <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string notr="true">12-Hour Forecast</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_location">
+   <property name="geometry">
+    <rect>
+     <x>25</x>
+     <y>45</y>
+     <width>576</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">

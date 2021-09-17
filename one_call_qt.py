@@ -44,7 +44,8 @@ class twelve_hour_forecast_dialog(QDialog):
         # Run the .setupUi() method to show the GUI
         self.twelve_ui.setupUi(self)
 
-        # Create a reference to the listWidgets for forecasts
+        # Create a reference to the listWidget and label
+        self.lbl_12_label = self.twelve_ui.lbl_location
         self.twelve_hour_list = self.twelve_ui.listWidget
 
         # Set the font for the listWidgets
@@ -81,7 +82,8 @@ class seven_day_forecast_dialog(QDialog):
         # Run the .setupUi() method to show the GUI
         self.seven_ui.setupUi(self)
 
-        # Create a reference to the listWidgets for forecasts
+        # Create a reference to the listWidget and label for forecasts
+        self.lbl_7_location = self.seven_ui.lbl_location
         self.seven_day_list = self.seven_ui.listWidget
 
         # Set the font for the listWidgets
@@ -120,6 +122,7 @@ class forty_eight_hour_forecast_dialog(QDialog):
 
         # Create a reference to the listWidgets for forecasts
         self.forty_eight_list = self.forty_eight_ui.listWidget
+        self.lbl_48_location = self.forty_eight_ui.lbl_location
 
         # Set the font for the listWidgets
         self.list_font = QtGui.QFont()
@@ -247,6 +250,8 @@ class OWM(QMainWindow, Ui_MainWindow):
         """
             Get 12-hour forecast from One Call Weather data
         """
+        self.twelve_hour_dialog.lbl_12_label.setText(f"{self.weather_class.address}")
+        
         # Clear weather_list
         self.twelve_hour_dialog.twelve_hour_list.clear()
         # Slice 12 hours out of weather_data
@@ -254,9 +259,6 @@ class OWM(QMainWindow, Ui_MainWindow):
         # print(
         #     f"12 Hour Weather Forecast for {datetime.datetime.now():%m/%d/%Y}")
         # print(f"{self.__address}")
-        # print("="*70)
-        self.twelve_hour_dialog.twelve_hour_list.addItem(
-            f"{self.weather_class.address}")
         self.twelve_hour_dialog.twelve_hour_list.addItem(
             f"  Time      Temp    Humidity  Wind Spd")
         count = 0
@@ -282,13 +284,13 @@ class OWM(QMainWindow, Ui_MainWindow):
         """
             Get 7 day forecast from One Call Weather data
         """
+        self.seven_day_dialog.lbl_7_location.setText(f"{self.weather_class.address}")
+        
         # Clear weather_list
         self.seven_day_dialog.seven_day_list.clear()
         # Slice the daily list out of weather_data
         weather_slice = self.weather_class.weather_data["daily"][:]
-        self.seven_day_dialog.seven_day_list.addItem(
-            f"{self.weather_class.address}")
-
+        
         self.seven_day_dialog.seven_day_list.addItem(
             f"Date           Max       Min     Wind Spd  ")
         count = 0
@@ -313,12 +315,11 @@ class OWM(QMainWindow, Ui_MainWindow):
         """
             Get 48 hour forecast from One Call Weather data
         """
+        self.forty_eight_hour_dialog.lbl_48_location.setText(f"{self.weather_class.address}")
         # Clear weather_list
         self.forty_eight_hour_dialog.forty_eight_list.clear()
         # Slice the daily list out of weather_data
         weather_slice = self.weather_class.weather_data["hourly"][:]
-        self.forty_eight_hour_dialog.forty_eight_list.addItem(
-            f"{self.weather_class.address}")
 
         count = 0
         # Iterate through the forecast
