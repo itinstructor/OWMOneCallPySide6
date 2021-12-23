@@ -155,7 +155,7 @@ class OWM(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         # Remove title bar
         self.setWindowFlag(Qt.FramelessWindowHint)
-
+        self.setFixedSize(self.size())
         # Create weather object with a reference to current class
         self.weather_class = OneCall(self)
 
@@ -177,6 +177,7 @@ class OWM(QMainWindow, Ui_MainWindow):
             self.weather_class.get_location)
 
         # Add widgets to status bar
+        self.status_bar.setSizeGripEnabled(False)
         self.status_bar.addPermanentWidget(self.progress_bar)
         # Set statusbar tips
         self.btn_get_weather.setStatusTip("Get current weather (Press Enter)")
