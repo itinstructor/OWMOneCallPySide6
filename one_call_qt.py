@@ -150,7 +150,7 @@ class OWM(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(OWM, self).__init__()
 
-        """ Initialize PySide6 QT GUI"""
+        """ Initialize PySide6 QT GUI """
         # Create the GUI
         self.setupUi(self)
         # Remove title bar
@@ -176,8 +176,9 @@ class OWM(QMainWindow, Ui_MainWindow):
         self.action_get_weather.triggered.connect(
             self.weather_class.get_location)
 
-        # Add widgets to status bar
+        # Remove sizing grip from status bar
         self.status_bar.setSizeGripEnabled(False)
+        # Add widgets to status bar
         self.status_bar.addPermanentWidget(self.progress_bar)
         # Set statusbar tips
         self.btn_get_weather.setStatusTip("Get current weather (Press Enter)")

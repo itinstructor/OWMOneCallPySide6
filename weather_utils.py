@@ -10,7 +10,7 @@ import math
 
 
 #----------------------- OPENWEATHERMAP API KEY ---------------------------#
-API_KEY = 'ENTER YOUR OWM KEY HERE'
+API_KEY = '91b87d5bd08301fa2e65452154faba07'
 # One Call Parameters
 PARAMETERS_WEATHER = {
     "appid": API_KEY,
@@ -54,6 +54,8 @@ def aqi_to_string(aqi):
     return aqi_string
 
 #--------------------------- UV INDEX STRING -----------------------------------#
+
+
 def uvi_to_string(uvi):
     if uvi >= 11:
         uvi_string = "Extreme"
@@ -112,7 +114,7 @@ def convert_time(time):
         Convert GMT Unix time to local time
     """
     # Convert Unix timestamp to local Python datetime
-    time = datetime.datetime.fromtimestamp(time)
+    time = datetime.datetime.utcfromtimestamp(time)
     # Format the date to hours, minutes, seconds, AM PM
     time = f"{time:%I:%M:%S %p}"
     # Strip out the leading 0's: 01 becomes 1

@@ -152,11 +152,16 @@ class OneCall:
         # Get visibility in meters, convert to miles
         self.__visibility = round(
             weather_dict.get("visibility") * 0.00062137, 1)
-        # Get sunrise and sunset time
-        self.__sunrise_time = weather_utils.convert_time(
-            weather_dict.get("sunrise"))
-        self.__sunset_time = weather_utils.convert_time(
-            weather_dict.get("sunset"))
+        
+        # Get sunrise and sunset time from API in Unix UTC
+        sunrise_time = weather_dict.get("sunrise")
+        sunset_time = weather_dict.get("sunset")
+        # Add shift in seconds from UTC
+        sunrise_time = sunrise_time + self.weather_data.get("timezone_offset")
+        sunset_time = sunset_time + self.weather_data.get("timezone_offset")
+        # Convert from Unix UTC timestamp to Python time
+        self.__sunrise_time = weather_utils.convert_time(sunrise_time)
+        self.__sunset_time = weather_utils.convert_time(sunset_time)
 
 #--------------------- DISPLAY WEATHER ON FORM -------------------#
     def display_weather(self):
